@@ -45,12 +45,14 @@
     },
     "aseName": {
       "type": "string",
+      "defaultValue": "HclCoeASE",
       "metadata": {
         "description": "Name of the App Service Environment"
       }
     },
     "aseResourceGroupName": {
       "type": "string",
+      "defaultValue": "HclCoeASE",
       "metadata": {
         "description": "Name of the resource group that the ASE resides in."
       }
@@ -344,7 +346,7 @@
       },
       "properties": {
         "name": "[variables('xcResourceIntensiveHostingPlanNameTidy')]",
-           "hostingEnvironment": "[parameters('aseName')]",
+        "hostingEnvironment": "[parameters('aseName')]",
         "hostingEnvironmentId": "[resourceId(parameters('aseResourceGroupName'),'Microsoft.Web/hostingEnvironments', parameters('aseName'))]"
       },
       "location": "[parameters('location')]",
