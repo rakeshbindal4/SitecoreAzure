@@ -26,12 +26,14 @@
     },
     "aseName": {
       "type": "string",
+      "defaultValue": "HclCoeASE",
       "metadata": {
         "description": "Name of the App Service Environment"
       }
     },
     "aseResourceGroupName": {
       "type": "string",
+      "defaultValue": "HclCoeASE",
       "metadata": {
         "description": "Name of the resource group that the ASE resides in."
       }
@@ -44,7 +46,7 @@
     "templateLinkAccessToken": {
       "type": "securestring",
       "defaultValue": ""
-    },   
+    },
     "deploymentId": {
       "type": "string",
       "defaultValue": "[resourceGroup().name]"
@@ -573,7 +575,7 @@
           "location": {
             "value": "[parameters('location')]"
           },
-           "aseName": {
+          "aseName": {
             "value": "[parameters('aseName')]"
           },
           "aseResourceGroupName": {
@@ -581,7 +583,7 @@
           },
           "sitecoreSKU": {
             "value": "[parameters('sitecoreSKU')]"
-          },          
+          },
           "sqlServerName": {
             "value": "[parameters('sqlServerName')]"
           },
@@ -707,7 +709,7 @@
           "location": {
             "value": "[parameters('location')]"
           },
-           "aseName": {
+          "aseName": {
             "value": "[parameters('aseName')]"
           },
           "aseResourceGroupName": {
@@ -860,7 +862,12 @@
           "location": {
             "value": "[parameters('location')]"
           },
-
+          "aseName": {
+            "value": "[parameters('aseName')]"
+          },
+          "aseResourceGroupName": {
+            "value": "[parameters('aseResourceGroupName')]"
+          },
           "sitecoreAdminPassword": {
             "value": "[parameters('sitecoreAdminPassword')]"
           },
@@ -1086,7 +1093,12 @@
           "location": {
             "value": "[parameters('location')]"
           },
-
+          "aseName": {
+            "value": "[parameters('aseName')]"
+          },
+          "aseResourceGroupName": {
+            "value": "[parameters('aseResourceGroupName')]"
+          },
           "sitecoreAdminPassword": {
             "value": "[parameters('sitecoreAdminPassword')]"
           },
@@ -1227,7 +1239,12 @@
           "location": {
             "value": "[parameters('location')]"
           },
-
+          "aseName": {
+            "value": "[parameters('aseName')]"
+          },
+          "aseResourceGroupName": {
+            "value": "[parameters('aseResourceGroupName')]"
+          },
           "sitecoreAdminPassword": {
             "value": "[parameters('sitecoreAdminPassword')]"
           },
@@ -1354,7 +1371,12 @@
           "location": {
             "value": "[parameters('location')]"
           },
-
+          "aseName": {
+            "value": "[parameters('aseName')]"
+          },
+          "aseResourceGroupName": {
+            "value": "[parameters('aseResourceGroupName')]"
+          },
           "licenseXml": {
             "value": "[parameters('licenseXml')]"
           },
@@ -1603,7 +1625,8 @@
               "securityClientIpMask": "[parameters('securityClientIpMask')]",
 
               "passwordSalt": "[parameters('passwordSalt')]",
-
+              "aseName": "[parameters('aseName')]",
+              "aseResourceGroupName": "[parameters('aseResourceGroupName')]",
               "xcServerConfigurationEnvironment": "[parameters('xcServerConfigurationEnvironment')]",
 
               "authCertificateBlob": "[parameters('authCertificateBlob')]",
