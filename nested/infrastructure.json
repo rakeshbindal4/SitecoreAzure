@@ -254,19 +254,19 @@
       "defaultValue": {
         "Extra Small": {
           "cmHostingPlan": {
-            "SkuName": "B3",
+            "SkuName": "S3",
             "SkuCapacity": 1
           },
           "cdHostingPlan": {
-            "SkuName": "B2",
+            "SkuName": "S2",
             "SkuCapacity": 1
           },
           "prcHostingPlan": {
-            "SkuName": "B1",
+            "SkuName": "S1",
             "SkuCapacity": 1
           },
           "repHostingPlan": {
-            "SkuName": "B1",
+            "SkuName": "S1",
             "SkuCapacity": 1
           },
           "coreSqlDatabase": {
