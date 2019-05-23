@@ -43,31 +43,51 @@
       "defaultValue": {
         "Extra Small": {
           "exmDdsHostingPlan": {
-            "SkuName": "B2",
+            "SkuName": "S2",
+            "SkuCapacity": 1
+          }, 
+          "exmDdsHostingPlanIsolated": {
+            "SkuName": "I1",
             "SkuCapacity": 1
           }
         },
         "Small": {
           "exmDdsHostingPlan": {
-            "SkuName": "B2",
+            "SkuName": "S2",
+            "SkuCapacity": 1
+          },
+          "exmDdsHostingPlanIsolated": {
+            "SkuName": "I1",
             "SkuCapacity": 1
           }
         },
         "Medium": {
           "exmDdsHostingPlan": {
-            "SkuName": "B2",
+            "SkuName": "S2",
+            "SkuCapacity": 1
+          },
+          "exmDdsHostingPlanIsolated": {
+            "SkuName": "I2",
             "SkuCapacity": 1
           }
         },
         "Large": {
           "exmDdsHostingPlan": {
-            "SkuName": "B2",
+            "SkuName": "S2",
+            "SkuCapacity": 1
+          },
+          "exmDdsHostingPlanIsolated": {
+            "SkuName": "I2",
             "SkuCapacity": 1
           }
         },
         "Extra Large": {
           "exmDdsHostingPlan": {
-            "SkuName": "B2",
+            "SkuName": "S2",
+            "SkuCapacity": 1
+          },
+          "exmDdsHostingPlanIsolated": {
+            "SkuName": "I2",
             "SkuCapacity": 1
           }
         }
@@ -76,20 +96,26 @@
     "resourceSizes": {
       "type": "object",
       "defaultValue": "[parameters('skuMap')[parameters('sitecoreSKU')]]"
+    },
+    "aseName":{
+      "type": "string",
+      "defaultValue": ""
+    },
+    "aseResourceGroupName":{
+      "type": "string",
+      "defaultValue": "[resourceGroup().name]"
     }
   },
   "resources": [
     {
       "type": "Microsoft.Web/serverfarms",
       "name": "[variables('exmDdsHostingPlanNameTidy')]",
-      "apiVersion": "[variables('serverFarmApiVersion')]",
+      "apiVersion": "[variables('serverFarmApiVersion')]",     
       "sku": {
-        "name": "[parameters('resourceSizes').exmDdsHostingPlan.SkuName]",
-        "capacity": "[parameters('resourceSizes').exmDdsHostingPlan.SkuCapacity]"
+        "name": "[if(not(variables('useAse')), parameters('resourceSizes').exmDdsHostingPlan.SkuName, parameters('resourceSizes').exmDdsHostingPlanIsolated.SkuName)]",
+        "capacity": "[if(not(variables('useAse')), parameters('resourceSizes').exmDdsHostingPlan.SkuCapacity, parameters('resourceSizes').exmDdsHostingPlanIsolated.SkuCapacity)]"
       },
-      "properties": {
-        "name": "[variables('exmDdsHostingPlanNameTidy')]"
-      },
+      "properties": "[if(not(variables('useAse')), variables('hostingPlanProperties').exmDdsProperties, variables('hostingPlanProperties').exmDdsPropertiesWithASE)]",
       "location": "[parameters('location')]",
       "tags": {
         "provider": "[variables('sitecoreTags').provider]",
