@@ -24,19 +24,13 @@
         ]
       }
     },
-    "aseName": {
+    "aseName":{
       "type": "string",
-      "defaultValue": "HclCoeASE",
-      "metadata": {
-        "description": "Name of the App Service Environment"
-      }
+      "defaultValue": ""
     },
-    "aseResourceGroupName": {
+    "aseResourceGroupName":{
       "type": "string",
-      "defaultValue": "HclCoeASE",
-      "metadata": {
-        "description": "Name of the resource group that the ASE resides in."
-      }
+      "defaultValue": "[resourceGroup().name]"
     },
     "templateLinkBase": {
       "type": "string",
