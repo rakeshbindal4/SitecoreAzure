@@ -24,13 +24,19 @@
         ]
       }
     },
-    "aseName":{
+    "aseName": {
       "type": "string",
-      "defaultValue": ""
+      "defaultValue": "HclCoeASE",
+      "metadata": {
+        "description": "Name of the App Service Environment"
+      }
     },
-    "aseResourceGroupName":{
+    "aseResourceGroupName": {
       "type": "string",
-      "defaultValue": "[resourceGroup().name]"
+      "defaultValue": "HclCoeASE",
+      "metadata": {
+        "description": "Name of the resource group that the ASE resides in."
+      }
     },
     "templateLinkBase": {
       "type": "string",
@@ -783,6 +789,12 @@
 
           "exmDdsWebAppName": {
             "value": "[parameters('exmDdsWebAppName')]"
+          },
+           "aseName": {
+            "value": "[parameters('aseName')]"
+          },
+          "aseResourceGroupName":{
+            "value": "[parameters('aseResourceGroupName')]"
           }
         }
       }
