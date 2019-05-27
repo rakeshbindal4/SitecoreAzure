@@ -265,13 +265,21 @@
         },
         "Large": {
           "xcBasicHostingPlan": {
-            "SkuName": "B3",
+            "SkuName": "S3",
+            "SkuCapacity": 1
+          },
+          "xcBasicHostingPlanIsolated": {
+            "SkuName": "I2",
             "SkuCapacity": 1
           },
           "xcResourceIntensiveHostingPlan": {
             "SkuName": "S3",
             "SkuCapacity": 2
           },
+          "xcResourceIntensiveHostingPlanIsolated": {
+            "SkuName": "I2",
+            "SkuCapacity": 2
+          },          
           "refDataSqlDatabase": {
             "Edition": "Standard",
             "MaxSize": "268435456000",
