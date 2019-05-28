@@ -46,7 +46,14 @@
         "authCertificateThumbprint": null
       }
     },
-
+    "aseName": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "aseResourceGroupName": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().name]"
+    },
     "deploymentId": {
       "type": "string",
       "defaultValue": "[resourceGroup().name]"
@@ -240,17 +247,17 @@
       "minLength": 1,
       "defaultValue": "[concat(parameters('deploymentId'), '-redis')]"
     },
-    
+
     "searchServiceName": {
       "type": "string",
       "defaultValue": "[concat(parameters('deploymentId'), '-as')]"
-    },    
+    },
 
     "solrConnectionString": {
       "type": "securestring",
       "defaultValue": ""
     },
-    
+
     "applicationInsightsName": {
       "type": "string",
       "minLength": 1,
@@ -436,7 +443,7 @@
               "Allow Invalid Client Certificates": "[parameters('allowInvalidClientCertificates')]",
               "License Xml": "[parameters('licenseXml')]"
             }
-          }        
+          }
         ]
       }
     },
@@ -477,7 +484,7 @@
               "Allow Invalid Client Certificates": "[parameters('allowInvalidClientCertificates')]",
               "License Xml": "[parameters('licenseXml')]"
             }
-          }         
+          }
         ]
       }
     },
@@ -542,7 +549,7 @@
               "Application Insights Role": "Reporting",
               "License Xml": "[parameters('licenseXml')]"
             }
-          }         
+          }
         ]
       }
     },
