@@ -7,7 +7,19 @@
 
     "exmDdsHostingPlanNameTidy": "[toLower(trim(parameters('exmDdsHostingPlanName')))]",
     "exmDdsWebAppNameTidy": "[toLower(trim(parameters('exmDdsWebAppName')))]",
-
+    "useAse": "[not(empty(parameters('aseName')))]",
+    "aseResourceId": "[resourceId(parameters('aseResourceGroupName'), 'Microsoft.Web/hostingEnvironments', parameters('aseName'))]",
+    "hostingPlanProperties": {
+      "exmDdsProperties": {
+        "name": "[variables('exmDdsHostingPlanNameTidy')]"
+      },
+      "exmDdsPropertiesWithASE": {
+        "name": "[variables('exmDdsHostingPlanNameTidy')]",
+        "hostingEnvironmentProfile": {
+          "id": "[variables('aseResourceId')]"
+        }
+      }
+    },
     "sitecoreTags": {
       "provider": "b51535c2-ab3e-4a68-95f8-e2e3c9a19299",
       "dds": "dds"
